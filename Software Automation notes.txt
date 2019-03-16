@@ -1,5 +1,34 @@
 Software Testing 
 
+To make the path shorter in the prompt use the following fundction:
+function prompt {
+  $host.ui.rawui.WindowTitle = "PS $pwd"
+  $p = 'PS ' + ($pwd -split '\\')[0]+' '+$(($pwd -split '\\')[-1] -join '\') + '> '
+  return $p
+}
+
+Function Prompt
+{
+ $tmp = $(Get-Location).Path.Split("\")
+ $myPrompt = "PS: " + $tmp[($tmp.count-2)] + "\" + $tmp[($tmp.count-1)] + ">"
+ Write-Host ($myPrompt) -NoNewLine
+ Return " "
+}
+
+
 BDD SpecFlow C# | Feature File | Step Definition File: by Vardhan
 https://www.youtube.com/watch?v=GnH-b9XrdM4
+
+Introduction to BDD in C# .net SpecFlow Visual Studio: by Tech Hustle
+https://www.youtube.com/watch?v=4hv_qyrLvp4
+
+
+===Working with Multiple Input===
+We may need to supply multiple input instead of hardcoded value passed in step available
+in scenario, for that we pass the data as Tables.
+Example of a table:
+|Name	| 20  |	04212	| sam@yahoo.com		|
+|Karth	|30	  | 04912	| sam@yahoo.com 	|
+|John	| 10  |	04217	| sam@yahoo.com 	|
+|Exec	| 12  |	04281	| sam@yahoo.com 	|
 
